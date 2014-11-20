@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:py="http://genshi.edgewall.org/" 
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+  >
+  
+  <py:def function="dict_dump(d, title)">
+    <!--! dump a dictionary -->
+    <py:with vars="r = int(h.Random().random() * 1000)">
+    <div class="dump" id="dump-${r}">
+        <h3>${title}</h3>
+        <span class="folder">
+            [<a href="#" onclick="t = jQuery(this); return toggle_folder(t, jQuery('div.items', t.closest('.dump')));" data-state="on" >Hide</a>]
+        </span>
+        <div class="items">
+            <span class="item" py:for="k in d">
+                <dt>${k}</dt><dd>${repr(d[k])}</dd>
+            </span>
+        </div>
+    </div>
+    </py:with>
+  </py:def>
+
+  <py:def function="var_dump(v, title)">
+    <!--! dump  a single variable -->
+    <div class="dump">
+        <h3>${title} (<code>${type(v).__name__}</code>)</h3>
+        <span>${repr(v)}</span>
+    </div>
+  </py:def>
+  
+  <py:match path="body/div" once="true" >
+    
+    ${dict_dump (request.environ, "Request Environment")}
+    
+    ${dict_dump (request.params, "Request Parameters")}
+    
+    ${var_dump (c, "Template Context")}
+    
+    ${var_dump (response, "Response")}
+    
+    ${var_dump (session, "Session")}
+    
+    ${var_dump (h, "Helper")}
+
+    <div id="context-vars" class="dump">
+        <h3>Context vars</h3>
+        <div class="items">
+            <div class="item"><dt>c.author</dt><dd>${c.author}</dd></div>
+            <div class="item"><dt>c.maintainer</dt><dd>${c.maintainer}</dd></div>
+        </div>    
+    </div>
+
+    <div id="extra-vars" class="dump">
+        <h3>Extra vars (<code>extra_vars</code>) supplied to <code>render()</code></h3>
+        <div class="items">
+            <div class="item"><dt>foo</dt><dd>${foo}</dd></div>
+        </div>    
+    </div>
+
+  </py:match>
+
+  <xi:include href="base.html" />
+  
+  <script type='text/javascript'>
+    function toggle_folder (folder, target)
+    {
+        if (folder.data('state') == 'on') 
+        { 
+            folder.data('state', 'off');
+            folder.html('Show');
+            target.fadeOut();
+        } 
+        else 
+        { 
+            folder.data('state', 'on');
+            folder.html('Hide');
+            target.fadeIn();
+        }
+
+        return false;
+    }
+  </script>
+
+</html>  

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:py="http://genshi.edgewall.org/" 
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+  >
+  <py:match path="body/div" once="true" >
+   
+    <div id="context-vars" class="dump">
+        <h3>Context vars</h3>
+        <div class="items">
+            <div class="item"><dt>c.author</dt><dd>${c.author}</dd></div>
+            <div class="item"><dt>c.maintainer</dt><dd>${c.maintainer}</dd></div>
+        </div>    
+    </div>
+
+    <div id="extra-vars" class="dump">
+        <h3>Extra vars (<code>extra_vars</code>) supplied to <code>render()</code></h3>
+        <div class="items">
+            <div class="item"><dt>foo</dt><dd>${foo}</dd></div>
+        </div>    
+    </div>
+
+  </py:match>
+
+  <xi:include href="base.html" />
+</html>  

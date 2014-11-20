@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html lang="en" 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:py="http://genshi.edgewall.org/" 
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+  >
+
+  <py:match path="head/style" once="true">
+    <style type="text/css">
+        ul.errors { background: #FFB300; border: solid 1px #bbb; margin: 10px 0px; padding: 10px 20px; }
+        ul.errors h4 { margin: 10px 0px; padding: 0px }
+        body { font-family: sans-serif; font-size: 12px; }
+        form input {  padding: 4px 5px; border: solid 1px #aaa; }
+        form input.btn { cursor: pointer; }
+        form input.btn:hover { background: #ccc }
+        form .control-container { margin: 5px 0px; }
+        form .control-container:after { content: " "; display: block; height:0; line-height:0; visibility:hidden; float:none; clear: both; }
+        form .control-container label { display: inline-block; float: left; width: 120px; }
+        form .control-container input { display: inline-block; float: left; } 
+    </style>
+  </py:match>
+
+  <py:match path="body/div" once="true" >
+    <div>
+    <ul py:if="c.errors" class="errors">
+        <li py:for="k,msg in c.errors.items()"><strong>${k}:</strong> <span>${msg}</span></li>
+    </ul>
+    <form id="contactform" method="post" enctype="multipart/form-data">
+        ${c.csrf_token_field}
+        <div class="control-container">
+            <label for="email">Email: </label>
+            <input id="email" name="email" type="text" maxlength="100" size="40" placeholder="lalakis@example.com"
+                value="${c.values.get('email','')}" />
+        </div>
+        <div class="control-container">
+            <label for="order_code">Order: </label>
+            <input id="order_code" name="order_code" type="text" maxlength="100" size="40" placeholder="ABC-8933" 
+                value="${c.values.get('order_code','')}" />
+        </div>
+        <div class="control-container">
+            <div>Your comments:</div>
+            <textarea id="comments" name="comments" placeholder="Type your comments here ..." cols="60" rows="4"
+                >${c.values.get('comments','')}</textarea>
+        </div>
+        <input class="btn" type="submit" name="op"  value="Submit" id="submit-btn" />
+        <input class="btn" type="submit" name="op"  value="Cancel" id="cancel-btn" />
+    </form>
+    </div>
+  </py:match>
+
+  <xi:include href="base.html" />
+  
+  <script type='text/javascript'></script>
+
+</html>  

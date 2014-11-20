@@ -1,0 +1,26 @@
+.dump 
+{
+    padding:5px;
+    margin: 5px 0px;
+    border:solid 1px silver; 
+    font-size:9pt; 
+    font-family: monospace;
+}
+.dump h3 
+{
+    font-family: sans-serif, serif;
+    color: blue;
+}
+.dump .items .item
+{
+    padding: 3px 0px;
+}
+.dump .items .item dt 
+{   
+    font-weight: bold;
+} 
+.dump .items
+{
+    margin: 4px 0px;
+}
+

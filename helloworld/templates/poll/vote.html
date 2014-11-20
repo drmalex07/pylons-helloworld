@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:py="http://genshi.edgewall.org/" 
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+  >
+
+  <py:match path="head/style" once="true">
+    <style type="text/css">
+        form .control-container { margin: 5px 0px; }
+        form .control-container:after { content: " "; display: block; height:0; line-height:0; visibility:hidden; float:none; clear: both; }
+        form .control-container label { display: inline-block; float: left; width: 120px; }
+        form .control-container input { display: inline-block; float: left; } 
+        form td { vertical-align: top; padding: 5px 15px 5px 0px; }
+    </style>
+  </py:match>
+
+  <py:match path="body/div" once="true" >
+    <div><form id="vote-form" method="post" enctype="multipart/form-data">
+        ${c.csrf_token_field}
+        <div class="control-container">
+            <label for="vote">Vote: </label>
+            <input id="vote" name="vote" type="text" maxlength="2" size="2" value="5"/>
+        </div>
+        <div class="control-container">
+            <label for="email">Email: </label>
+            <input id="email" name="email" type="text" maxlength="100" size="40" placeholder="lalakis@example.com"/>
+        </div>
+        <table><tr>
+            <td><div class="control-container">
+                <div>You can directly describe your decision: </div>
+                <textarea id="vote-comment" name="vote-comment" placeholder="Type your comments here ..." cols="40" rows="4"></textarea>
+            </div></td>
+            <td>
+                <p><em>... or ...</em></p>
+            </td>
+            <td><div class="control-container">
+                <div>Send us a small plain text file: </div>
+                <input type="file" name="vote-attachment" id="vote-attachment" size="15"/>
+            </div></td>
+        </tr></table>
+        <input type="submit" name="op"  value="Submit" id="submit-btn" />
+        <input type="submit" name="op"  value="Cancel" id="cancel-btn" />
+    </form></div>
+  </py:match>
+
+  <xi:include href="base.html" />
+  
+  <script type='text/javascript'>
+  </script>
+
+</html>  

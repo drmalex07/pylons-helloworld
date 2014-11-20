@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:py="http://genshi.edgewall.org/" 
+    xmlns:xi="http://www.w3.org/2001/XInclude"
+    py:strip=""
+  >
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>/* inline style */</style>
+    <link type="text/css" rel="stylesheet" href="/css/main.css" />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript">/*inline javascript*/</script>
+  </head>
+  <body>
+    <h2>Hello (Pylons) World!!</h2>
+    <py:with vars="messages=h.flash.pop_messages()">
+    <ul class="messages" py:if="messages">
+        <li py:for="msg in messages">${msg}</li>
+    </ul>
+    </py:with>
+    <div id="content"><em>This is supposed to be replaced by a py:match element</em></div> 
+  </body>
+</html>  

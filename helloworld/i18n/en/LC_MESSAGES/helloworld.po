@@ -1,0 +1,175 @@
+# English translations for helloworld.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the helloworld project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: helloworld 0.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2013-06-15 19:39+0300\n"
+"PO-Revision-Date: 2012-10-11 09:47+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: helloworld/controllers/greet.py:72
+#, python-format
+msgid "Hello %(name)s"
+msgstr ""
+
+#: helloworld/lib/vocabulary.py:9
+msgid "Health"
+msgstr ""
+
+#: helloworld/lib/vocabulary.py:10
+msgid "Environment"
+msgstr ""
+
+#: helloworld/lib/vocabulary.py:11
+msgid "Education"
+msgstr ""
+
+#: helloworld/lib/vocabulary.py:12
+msgid "Economy"
+msgstr ""
+
+#: helloworld/lib/vocabulary.py:13
+msgid "Society"
+msgstr ""
+
+#: helloworld/lib/vocabulary.py:14
+msgid "Defense"
+msgstr ""
+
+#: helloworld/lib/vocabulary.py:15
+msgid "Location"
+msgstr ""
+
+#: helloworld/lib/vocabulary.py:16
+msgid "Transports"
+msgstr ""
+
+#: helloworld/lib/vocabulary.py:17
+msgid "Administration"
+msgstr ""
+
+#: helloworld/lib/vocabulary.py:18
+msgid "Government"
+msgstr ""
+
+#: helloworld/lib/vocabulary.py:19
+msgid "Public Spending"
+msgstr ""
+
+#: helloworld/templates/greet/base.html:17
+#: helloworld/templates/poll/base.html:16
+msgid "Hello (Pylons) World!!"
+msgstr ""
+
+#: helloworld/templates/greet/base.html:18
+#: helloworld/templates/poll/base.html:17
+#: helloworld/templates/storage/base.html:23
+msgid "This is supposed to be replaced by a py:match element"
+msgstr ""
+
+#: helloworld/templates/greet/categories.html:12
+msgid "Categories"
+msgstr ""
+
+#: helloworld/templates/greet/index.html:15
+msgid "Hide"
+msgstr ""
+
+#: helloworld/templates/greet/index.html:49
+msgid "Context vars"
+msgstr ""
+
+#: helloworld/templates/greet/index.html:51
+msgid "c.author"
+msgstr ""
+
+#: helloworld/templates/greet/index.html:52
+msgid "c.maintainer"
+msgstr ""
+
+#: helloworld/templates/greet/index.html:57
+msgid "Extra vars ("
+msgstr ""
+
+#: helloworld/templates/greet/index.html:57
+msgid "extra_vars"
+msgstr ""
+
+#: helloworld/templates/greet/index.html:57
+msgid ") supplied to"
+msgstr ""
+
+#: helloworld/templates/greet/index.html:57
+msgid "render()"
+msgstr ""
+
+#: helloworld/templates/greet/index.html:59
+msgid "foo"
+msgstr ""
+
+#: helloworld/templates/poll/results.html:21
+msgid "Poll results"
+msgstr ""
+
+#: helloworld/templates/poll/vote.html:23
+msgid "Vote:"
+msgstr ""
+
+#: helloworld/templates/poll/vote.html:27
+msgid "Email:"
+msgstr ""
+
+#: helloworld/templates/poll/vote.html:32
+msgid "You can directly describe your decision:"
+msgstr ""
+
+#: helloworld/templates/poll/vote.html:36
+msgid "... or ..."
+msgstr ""
+
+#: helloworld/templates/poll/vote.html:39
+msgid "Send us a small plain text file:"
+msgstr ""
+
+#: helloworld/templates/storage/base.html:22
+msgid "Index"
+msgstr ""
+
+#: helloworld/templates/storage/index.html:42
+msgid "Index of"
+msgstr ""
+
+#: helloworld/templates/storage/index.html:51
+msgid "Type"
+msgstr ""
+
+#: helloworld/templates/storage/index.html:52
+msgid "Name"
+msgstr ""
+
+#: helloworld/templates/storage/index.html:53
+msgid "Size"
+msgstr ""
+
+#: helloworld/templates/storage/index.html:54
+msgid "Created"
+msgstr ""
+
+#: helloworld/templates/storage/index.html:55
+msgid "Modified"
+msgstr ""
+
+#: helloworld/templates/storage/index.html:71
+msgid "Upload a file"
+msgstr ""
+

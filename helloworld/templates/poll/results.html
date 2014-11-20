@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:py="http://genshi.edgewall.org/" 
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+  >
+  
+  <py:match path="head/style" once="true">
+  <style type="text/css">
+    body { font-size: 12px }
+    td { padding: 3px 2px; margin: 7px 10px; }
+    td.vote-percentage { font-family: monospace }
+    td.vote-percentage .progress-bar { display:inline-block; position: relative; background-color: #eee; width: 180px; }
+    td.vote-percentage .progress-bar .bar { display:inline-block; background-color: green; }
+  </style>
+  </py:match>
+
+  <py:match path="body/div" once="true" >
+
+  <h3>Poll results</h3>
+  <?python
+    vote_freqs      = map (lambda x: 0, range(0,10));
+    vote_percentage = map (lambda x: 0, range(0,10));
+    for vote,freq in c.vote_freqs:
+        i = vote -1
+        vote_freqs [i] = freq
+        vote_percentage [i] = (100.0 * (float(freq) / float(c.vote_count)))
+  ?>
+
+  <table id="poll-results-table">
+  <tbody>
+      <tr py:for="i in range(0,10)">
+           <td class="vote-vote">${i+1}</td>
+           <td class="vote-percentage">
+               <span class="progress-bar"><span class="bar" style="width: ${int(vote_percentage[i])}%">&nbsp;</span></span>
+               ${int(vote_percentage[i])} %
+           </td> 
+      </tr>
+  </tbody>    
+  </table>
+  </py:match>
+
+  <xi:include href="base.html" />
+  
+  <script type='text/javascript'>
+  </script>
+
+</html>  

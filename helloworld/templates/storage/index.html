@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:py="http://genshi.edgewall.org/" 
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+  >
+  
+  <py:match path="head/style">
+  <style type="text/css"> 
+    a, a:visited {
+        color: #13718E;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    table.directory-listing { 
+        font-size: 0.95em;
+    }
+    table.directory-listing td {
+        padding: 3px 6px; 
+        text-align: left; 
+        border: solid #AE9F9F;
+        border-width: 0px 0px 0px 0px; 
+    } 
+    table.directory-listing tr td {
+        background: #FBF5F0;
+    }
+    table.directory-listing tr.state-hover td {
+        background: #E7E2DE;
+    }
+    table.directory-listing th { 
+        padding: 3px 6px; 
+        text-align: left;
+        border: solid #8f8181;
+        border-width: 0px 0px 1px 0px; 
+    }
+  </style>
+  </py:match>
+
+  <py:match path="body/h2" once="true" >
+  <h2>Index of ${c.storage_index.get('path')}</h2>
+  </py:match>
+
+  <py:match path="body/div" once="true" >
+  <div id="content">
+     <div>
+         <table class="directory-listing" cellspacing="0px">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Created</th>
+                    <th>Modified</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr py:for="entry in c.storage_index.get('listing')" >
+                    <td>${'&lt;dir&gt;' if entry.get('is_dir') else ''}</td>
+                    <td><a href="${entry.get('target','#')}">${entry.get('name')}</a></td>
+                    <td><tt>${entry.get('size')}</tt></td>
+                    <td><tt>${entry.get('created')}</tt></td>
+                    <td><tt>${entry.get('modified')}</tt></td> 
+                </tr>
+            </tbody>
+         </table>
+     </div>
+
+     <div>
+         <h2>Upload a file</h2>
+         <form method="POST" enctype="multipart/form-data" name="upload-form" id="upload-form" action="${c.storage_index.get('upload_url')}">
+            <input type="hidden" name="path" value="${c.storage_index.get('path')}" />
+            <input type="file" name="upload" size="10" />
+            <input type="submit" name="op" value="Upload" />
+         </form>
+     </div>
+  </div>
+  </py:match>
+  
+  <xi:include href="base.html" />
+  
+  <script type='text/javascript'> 
+    jQuery (function() {
+        jQuery("td").hover(
+            function() {
+                jQuery(this).closest('tr').addClass("state-hover");
+            }, 
+            function() {
+                jQuery(this).closest('tr').removeClass("state-hover");
+            }
+        );
+    });
+  </script>
+
+</html>  

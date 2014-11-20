@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:py="http://genshi.edgewall.org/"
+    xmlns:i18n="http://genshi.edgewall.org/i18n"
+    xmlns:xi="http://www.w3.org/2001/XInclude" 
+  >
+    
+<py:match path="body/div" once="true" >
+<div>
+    <ol>
+        <h3>${ c.title }</h3>
+        <py:for each="category in c.categories">
+        <li>${ category[0] } (${ category[1] })</li>
+        </py:for >
+    </ol>
+</div>
+</py:match>
+
+<xi:include href="base.html" />
+
+</html>  
