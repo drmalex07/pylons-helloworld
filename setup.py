@@ -25,11 +25,12 @@ setup(
     include_package_data=True,
     test_suite='nose.collector',
     package_data={'helloworld': ['i18n/*/LC_MESSAGES/*.mo']},
-    message_extractors={'helloworld': [
+    message_extractors={
+       'helloworld': [
             ('lib/inspire_vocabulary.py', 'helloworld_vocabularies', None),
             ('**.py', 'python', None),
             ('templates/**.html', 'genshi', None),
-            ('public/**', 'ignore', None)]
+            ('public/**', 'ignore', None)],
     },
     zip_safe=False,
     paster_plugins=['PasteScript', 'Pylons'],
