@@ -27,6 +27,14 @@
             <label for="email">Email: </label>
             <input id="email" name="email" type="text" maxlength="100" size="40" placeholder="lalakis@example.com"/>
         </div>
+        <div class="control-container">
+            <label for="reason">Reason: </label>
+            <select multiple="multiple" id="reason" name="reason"> 
+                <option value="1">Reason #1</option>
+                <option value="2">Reason #2</option>
+                <option value="3">Reason #3</option>
+            </select>
+        </div>
         <table><tr>
             <td><div class="control-container">
                 <div>You can directly describe your decision: </div>
@@ -40,14 +48,21 @@
                 <input type="file" name="vote-attachment" id="vote-attachment" size="15"/>
             </div></td>
         </tr></table>
-        <input type="submit" name="op"  value="Submit" id="submit-btn" />
-        <input type="submit" name="op"  value="Cancel" id="cancel-btn" />
+        <input type="button" name="op"  value="Submit" id="submit-btn" />
+        <input type="button" name="op"  value="Cancel" id="cancel-btn" />
     </form></div>
   </py:match>
 
   <xi:include href="base.html" />
   
   <script type='text/javascript'>
+    $('#submit-btn').on('click.aaa', function (ev) {
+        window.setTimeout(function () {
+            $("#vote-form").submit()
+        }, 5000)
+        console.log('I will be submited in 5s ...')
+        return false;
+    })
   </script>
 
 </html>  

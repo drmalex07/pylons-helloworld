@@ -61,7 +61,6 @@ class TestGreetController(TestController):
         c.maintainer = 'Boo'
         
         markup = render('greet/index-1.html', extra_vars={ 'foo': 'bar' })
-        assert False 
 
         self._teardown_request_globals()
         self._teardown_template_context()
