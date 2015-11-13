@@ -23,11 +23,25 @@ def make_map(config):
         m.connect('test-action-with-id', '/tests/{action}/{id}', controller='tests') 
 
     with m.submapper(path_prefix='/helloworld') as m1:
-        # non-default routes
+        # Add non-default routes
         m1.connect('greet-list-categories', '/greet/categories', controller='greet', action='category_list')
         m1.connect('greet-interactive-break', '/greet/break', controller='greet', action='brk')
         m1.connect('greet-convert-name', '/greet/convert-name/{name}', controller='greet', action='convert_name')
-        # default routes ...
+        m1.connect('comments', '/comments/index', controller='comments', action='index')
+        m1.connect('comment-new', '/comments/new', controller='comments', action='new',
+            conditions=dict(method=['GET']))
+        m1.connect('comment-create', '/comments/create', controller='comments', action='create', 
+            conditions=dict(method=['POST']))
+        m1.connect('comment-update', '/comments/{cid}/update', controller='comments', action='update',
+            conditions=dict(method=['PUT', 'POST']))
+        m1.connect('comment-delete', '/comments/{cid}/delete', controller='comments', action='delete',
+            conditions=dict(method=['DELETE', 'POST']))
+        m1.connect('comment-edit', '/comments/{cid}/edit', controller='comments', action='edit',
+            conditions=dict(method=['GET']))
+        m1.connect('comment-show', '/comments/{cid}', controller='comments', action='show',
+            conditions=dict(method=['GET']))
+        
+        # Add default routes
         m1.connect('/{controller}/{action}')
         m1.connect('/{controller}/{action}/{id}')
 

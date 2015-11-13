@@ -25,7 +25,7 @@ class CommentsController(BaseController):
         """GET /comments/new: Form to create a new item"""
         # url('new_comment')
 
-    def update(self, id):
+    def update(self, cid):
         """PUT /comments/id: Update an existing item"""
         # Forms posted to this method should contain a hidden field:
         #    <input type="hidden" name="_method" value="PUT" />
@@ -34,7 +34,7 @@ class CommentsController(BaseController):
         #           method='put')
         # url('comment', id=ID)
 
-    def delete(self, id):
+    def delete(self, cid):
         """DELETE /comments/id: Delete an existing item"""
         # Forms posted to this method should contain a hidden field:
         #    <input type="hidden" name="_method" value="DELETE" />
@@ -43,10 +43,10 @@ class CommentsController(BaseController):
         #           method='delete')
         # url('comment', id=ID)
 
-    def show(self, id, format='html'):
+    def show(self, cid, format='html'):
         """GET /comments/id: Show a specific item"""
         # url('comment', id=ID)
 
-    def edit(self, id, format='html'):
+    def edit(self, cid, format='html'):
         """GET /comments/id/edit: Form to edit an existing item"""
         # url('edit_comment', id=ID)

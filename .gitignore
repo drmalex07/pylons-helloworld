@@ -52,5 +52,7 @@ docs/_build/
 # PyBuilder
 target/
 
-# Other helloworld-specific
+# Data
 data
+data-tests
+
