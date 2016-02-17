@@ -56,3 +56,7 @@ target/
 data
 data-tests
 
+
+# Configuration
+production-*.ini
+development-*.ini

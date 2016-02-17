@@ -44,10 +44,6 @@ def load_environment(global_conf, app_conf):
 
     # Setup the database connection (bind to an engine)
 
-    import json
-    #logging.info ('global_conf=%s' %(json.dumps(global_conf, indent=4)))
-    #logging.info ('app_conf=%s' %(json.dumps(app_conf, indent=4)))
-
     db_engine = sqlalchemy.create_engine (config['sqlalchemy.url']);
     model.init_model (db_engine)
 
